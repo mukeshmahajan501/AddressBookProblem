@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,7 +17,8 @@ public class AddressBookMain {
                     "\n2. View Address Book." +
                     "\n3. Edit details." +
                     "\n4. Delete person." +
-                    "\n5. Exit." +
+                    "\n5. Sort by name." +
+                    "\n6. Exit." +
                     "\n Enter your choice: ");
             int choice = input.nextInt();
             switch (choice) {
@@ -50,7 +52,16 @@ public class AddressBookMain {
                         list = addressBook.deletePerson((LinkedList<Person>) list);
                     }
                     break;
+
                 case 5:
+                    if (list.isEmpty()) {
+                        System.out.println("Address Book Empty.");
+                    } else {
+                        addressBook.sortByName((LinkedList<Person>) list);
+                    }
+                    break;
+
+                case 6:
                     isContinoue=false;
                     System.out.println("Exit.");
                     break;
