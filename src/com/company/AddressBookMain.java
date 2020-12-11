@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +11,6 @@ public class AddressBookMain {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Address Book !");
         boolean isContinoue=true;
-        //iterating loop for  multiple person
         while (isContinoue) {
             System.out.print("\n1. Add Person." +
                     "\n2. View Address Book." +
@@ -23,7 +21,7 @@ public class AddressBookMain {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    person = addressBook.addPerson();
+                    person = addressBook.addPerson((LinkedList<Person>) list);
                     list.add(person);
                     break;
 
