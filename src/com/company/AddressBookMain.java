@@ -12,6 +12,7 @@ public class AddressBookMain {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Address Book !");
         boolean isContinoue=true;
+        //iterating loop for  multiple person
         while (isContinoue) {
             System.out.print("\n1. Add Person." +
                     "\n2. View Address Book." +
