@@ -6,42 +6,52 @@ import java.util.Scanner;
 
 public class AddressBookMain {
     public static void main(String[] args) {
-        List<Person> addressBookMain = new LinkedList<>();
+        List<Person> list = new LinkedList<>();
         AddressBook addressBook = new AddressBook();
         Person person;
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Address Book !");
-        boolean isContinoue = true;
+        boolean isContinoue=true;
         while (isContinoue) {
             System.out.print("\n1. Add Person." +
                     "\n2. View Address Book." +
                     "\n3. Edit details." +
-                    "\n4. Exit." +
+                    "\n4. Delete person." +
+                    "\n5. Exit." +
                     "\n Enter your choice: ");
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
                     person = addressBook.addPerson();
-                    addressBookMain.add(person);
+                    list.add(person);
                     break;
 
                 case 2:
-                    if (addressBookMain.isEmpty()) {
+                    if (list.isEmpty()) {
                         System.out.println("Address Book is Empty.");
                     } else {
-                        for (Person details : addressBookMain) {
+                        for (Person details : list) {
                             System.out.println(details.toString());
                         }
                     }
                     break;
+
                 case 3:
-                    if (addressBookMain.isEmpty()) {
+                    if (list.isEmpty()) {
                         System.out.println("Address Book Empty.");
                     } else {
-                        addressBookMain = addressBook.editPerson((LinkedList<Person>) addressBookMain);
+                        list = addressBook.editPerson((LinkedList<Person>) list);
                     }
                     break;
+
                 case 4:
+                    if (list.isEmpty()) {
+                        System.out.println("Address Book Empty.");
+                    } else {
+                        list = addressBook.deletePerson((LinkedList<Person>) list);
+                    }
+                    break;
+                case 5:
                     isContinoue=false;
                     System.out.println("Exit.");
                     break;
